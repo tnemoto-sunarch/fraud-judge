@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function(){
+        	$('#fj_frm').on('submit', fonsubmit);
+        	$('#fj_frm').on('submit', fonsubmit);
+        })
+        function fonsubmit(){
+            alert('Hello');
+        }
+        </script>
+    </head>
+    <body>
+        <form name="frm" id="fj_frm" action="sample2.html" method="get">
+            カード番号：<input type="text" name="card_no"> <br />
+            有効期限：<input type="text" name="exp_date"> <br />
+            セキュリティコード：<input type="text" name="sec_code"> <br />
+            <input type="submit">
+        </form>
+
+        <script src="http://localhost:8080/js/fraudjudge.js"></script>
+    </body>
+</html>

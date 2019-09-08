@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: FraudJudge
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    jp.co.sunarch: DEBUG
+  file: logs/${spring.application.name}.log
+  
