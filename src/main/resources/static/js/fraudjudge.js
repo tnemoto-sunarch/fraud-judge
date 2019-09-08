@@ -1,5 +1,5 @@
 $(function(){
-	console.log('hello');
+//	console.log('hello');
 	// =================================
 	// formの特定
 	// ID指定(変更可能)
@@ -11,17 +11,17 @@ $(function(){
 		// 項目の特定
 		// name指定(変更可能)
 		// =================================
-		var card_no = form.find('input[name=card_no]')
-		var exp_date = form.find('input[name=exp_date]')
-		var sec_code = form.find('input[name=sec_code]')
+		var card_no = form.find('input[name=card_no]');
+		var exp_date = form.find('input[name=exp_date]');
+		var sec_code = form.find('input[name=sec_code]');
 
 		var orgEvents = [];
 		//JQueryイベントの検知
 		var events = $._data(form.get(0), 'events');
 		if(events){
-			console.log('jquery event exists.')
+//			console.log('jquery event exists.');
 			var originalHandler = events.submit;
-			console.log(originalHandler);
+//			console.log(originalHandler);
 			$.each(originalHandler, function(i, obj){
 				orgEvents.push(obj.handler);
 			});
@@ -34,13 +34,13 @@ $(function(){
 		//通常のHTMLイベントの検知
 		var originalEvent = form.get(0).onsubmit;
 		if(originalEvent){
-			console.log('html event exists.')
+//			console.log('html event exists.');
 			form.get(0).onsubmit = ''
 			orgEvents.push(originalEvent);
 		}
 		//submitイベントの書き換え
 		form.one('submit', function(event) {
-			console.log('fj_onsubmit start');
+//			console.log('fj_onsubmit start');
 			var data = {
 				'user_id': 'uid-xxxxx',
 				'request_id': 'rid-xxxxx',
@@ -50,7 +50,7 @@ $(function(){
 					'sec_code': sec_code.val()
 				}
 			}
-			console.log(data)
+//			console.log(data);
 			// =================================
 			// 不正判定ロジック(別ドメイン)の呼出し
 			// =================================
@@ -65,8 +65,8 @@ $(function(){
 				// =================================
 				// 成功した場合は、hiddenの埋め込み
 				// =================================
-				console.log('success')
-				console.log(data)
+//				console.log('success');
+//				console.log(data);
 				$('<input>"').attr({
 					type : 'hidden',
 					name : 'token',
@@ -77,15 +77,15 @@ $(function(){
 				// =================================
 				// 失敗時は何もしない(仕様次第)
 				// =================================
-				console.log('error')
-				console.log(data)
+//				console.log('error');
+//				console.log(data);
 			})
 			.always((data) => {
 				// =================================
 				// 成功・失敗に関わらず、イベントを復元し
 				// 再度、submitイベントをコール
 				// =================================
-				console.log('always');
+//				console.log('always');
 				if(orgEvents){
 					$.each(orgEvents, function(i, handler){
 						if(handler){
@@ -104,7 +104,7 @@ $(function(){
 				// IE対応
 				event.returnValue = false;
 			}
-			console.log('fj_onsubmit end');
+//			console.log('fj_onsubmit end');
 			return false;
 		});
 	}
