@@ -61,7 +61,7 @@ $(function(){
 				dataType: "json",
 				data: JSON.stringify(data)
 			})
-			.done((data) => {
+			.done(function(data){
 				// =================================
 				// 成功した場合は、hiddenの埋め込み
 				// =================================
@@ -73,14 +73,14 @@ $(function(){
 					value : data.token
 				}).appendTo(form);
 			})
-			.fail((data) => {
+			.fail(function(data){
 				// =================================
 				// 失敗時は何もしない(仕様次第)
 				// =================================
 //				console.log('error');
 //				console.log(data);
 			})
-			.always((data) => {
+			.always(function(data){
 				// =================================
 				// 成功・失敗に関わらず、イベントを復元し
 				// 再度、submitイベントをコール
