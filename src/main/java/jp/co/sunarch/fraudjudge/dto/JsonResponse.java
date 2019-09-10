@@ -18,11 +18,30 @@ public class JsonResponse implements Serializable{
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS+9:00", timezone = "Asia/Tokyo")
 	private Date proccess = null;
 
-	@JsonProperty("token")
-	private String token = null;
+	@JsonProperty("fj_token")
+	private String fjToken = null;
+
+	@JsonProperty("fj_level")
+	private int fjLevel = -1;
 
 	public void setResultCode(int resultCode) {
 		this.resultCode = resultCode;
+	}
+
+	public String getFjToken() {
+		return fjToken;
+	}
+
+	public void setFjToken(String fjToken) {
+		this.fjToken = fjToken;
+	}
+
+	public int getFjLevel() {
+		return fjLevel;
+	}
+
+	public void setFjLevel(int fjLevel) {
+		this.fjLevel = fjLevel;
 	}
 
 	public String getMessage() {
@@ -43,13 +62,5 @@ public class JsonResponse implements Serializable{
 
 	public int getResultCode() {
 		return resultCode;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
 	}
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function(){
+            if(location.search){
+                var params = location.search.substring(1);
+                var ps = params.split('&');
+                $.each(ps, function(i, p){
+                    var pos = p.indexOf('=');
+                    var name = p.substring(0, pos);
+                    var val = p.substring(pos + 1);
+                    if($('#' + name) && val){
+                        $('#' + name).html(val);
+                    }
+                });
+            }
+        });
+        </script>
+    </head>
+    <body>
+        <h1>加盟店画面２</h1>
+        <hr>
+        <div>カード番号：<span id="card_no" ></span></div>
+        <div>有効期限：<span id="exp_date" ></span></div>
+        <div>セキュリティコード：<span id="sec_code" ></span></div>
+        <div>不正レベル：<span id="fj_level" ></span></div>
+        <div>トークン：<span id="fj_token" ></span></div>
+    </body>
+</html>

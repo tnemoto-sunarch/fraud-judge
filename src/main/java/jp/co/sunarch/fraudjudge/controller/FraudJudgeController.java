@@ -37,7 +37,8 @@ public class FraudJudgeController {
 		res.setResultCode(0);
 		res.setMessage("Hello");
 		res.setProccess(new Date());
-		res.setToken(RandomStringUtils.randomAlphanumeric(32));
+		res.setFjToken(RandomStringUtils.randomAlphanumeric(32));
+		res.setFjLevel(5);
 
 		return ResponseEntity.ok(res);
 	}
