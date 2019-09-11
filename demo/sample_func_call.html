@@ -20,7 +20,9 @@
                     'sec_code': $('#sec_code').val()
                 }
             };
-            fraudjudge(document.forms[0], data, function(){
+            fraudjudge(data, function(result){
+            	document.getElementById('fj_token').value = result.fj_token;
+            	document.getElementById('fj_level').value = result.fj_level;
                 document.forms[0].submit();
             });
         }
@@ -35,6 +37,8 @@
             有効期限：<input type="text" name="exp_date"> <br />
             セキュリティコード：<input type="text" name="sec_code"> <br />
             <br />
+            <input type="hidden" name="fj_token" id="fj_token" value="">
+            <input type="hidden" name="fj_level" id="fj_level" value="">
             <input type="button" onclick="fonsubmit()" value="送信">
         </form>
 
